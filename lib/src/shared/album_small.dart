@@ -26,6 +26,7 @@ class AlbumSmall extends StatelessWidget {
               ),
               Text(
                 title,
+                overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.caption?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.w900,

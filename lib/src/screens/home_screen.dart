@@ -46,6 +46,10 @@ class HomeScreen extends StatelessWidget {
           const Section(
             title: "Feito para Efrain Mário",
             albums: [1, 2, 3],
+          ),
+          const Section(
+            title: "Reproduzido recentemente",
+            albums: [1, 2, 3, 4, 5, 6],
           )
         ],
       ),

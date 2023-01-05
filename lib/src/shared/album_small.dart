@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class AlbumSmall extends StatelessWidget {
@@ -23,6 +24,13 @@ class AlbumSmall extends StatelessWidget {
                 height: 48,
                 color: Colors.primaries[3],
                 margin: const EdgeInsets.only(right: 8),
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
               Text(
                 title,

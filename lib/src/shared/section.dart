@@ -3,9 +3,15 @@ import 'package:flutter3_test/src/shared/album_large.dart';
 
 class Section extends StatelessWidget {
   final String title;
+  final bool isTitleOnly;
   final List<dynamic> albums;
 
-  const Section({super.key, required this.title, required this.albums});
+  const Section({
+    super.key,
+    required this.title,
+    required this.albums,
+    this.isTitleOnly = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +34,19 @@ class Section extends StatelessWidget {
           height: 200,
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: 4,
+              itemCount: albums.length,
               separatorBuilder: (context, index) {
                 return const SizedBox(width: 10);
               },
               itemBuilder: (context, index) {
-                // var album = albums[index];
+                var album = albums[index];
 
-                return const AlbumLarge();
+                return AlbumLarge(
+                  authors: album['authors'] ?? '',
+                  title: album['title'] ?? '',
+                  imageUrl: album['imageUrl'] ?? '',
+                  isTitleOnly: isTitleOnly,
+                );
               }),
         ),
       ],
